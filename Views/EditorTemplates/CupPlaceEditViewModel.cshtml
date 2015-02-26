@@ -1,0 +1,19 @@
+﻿@using HtmlHelpers.BeginCollectionItem
+@model GoodM8s.TheCup.ViewModels.CupPlaceEditViewModel
+<tr class="place">
+    @using (Html.BeginCollectionItem("Cup.Placement"))
+    {
+        <td>
+            @Html.HiddenFor(x => x.Id)
+            @Html.EditorFor(x => x.Place)
+            @Html.ValidationMessageFor(x => x.Place)
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Points)
+            @Html.ValidationMessageFor(x => x.Points)
+        </td>
+        <td>
+            <a href="#" class="remove-place">Remove</a>
+        </td>
+    }
+</tr>

@@ -1,0 +1,10 @@
+﻿@{
+    Script.Require("ShapesBase");
+    Script.Include("jquery.goodm8s.cup-edit.js").AtFoot();
+    Layout.Title = T("Create Cup").ToString();
+}
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary()
+    @Display(Model)
+}

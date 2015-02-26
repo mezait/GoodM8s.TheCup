@@ -1,0 +1,85 @@
+﻿@model GoodM8s.TheCup.ViewModels.CupResultsViewModel
+<div class="results-container">
+    <h2>@Model.Cup.Title</h2>
+    @Model.Cup.Date.Value.ToShortDateString()
+    <h3>
+        Total</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Team
+                </th>
+                <th>
+                    Points
+                </th>
+                <th>
+                    Penalties
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model.TeamTotals.OrderByDescending(t => t.Value.TotalScore))
+            {
+                <tr>
+                    <td>
+                        @team.Key.Name
+                        <ul>
+                            @foreach (var attendee in @team.Key.TeamMates)
+                            {
+                                <li>
+                                    @attendee.AttendeePartRecord.FirstName
+                                    @attendee.AttendeePartRecord.LastName
+                                </li>
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        @team.Value.TotalScore
+                    </td>
+                    <td>
+                        @team.Value.TotalPenalties
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h3>
+        Results</h3>
+    @foreach (var eventScore in Model.EventScores)
+    {
+        <h4>@eventScore.Event.Name</h4>
+        @eventScore.Event.Description
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Team
+                    </th>
+                    <th>
+                        Score
+                    </th>
+                    <th>
+                        Penalties
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var teamScore in eventScore.TeamScores)
+                {
+                    <tr>
+                        <td>
+                            @teamScore.TeamPartRecord.Name
+                        </td>
+                        <td>
+                            @teamScore.Score
+                        </td>
+                        <td>
+                            @teamScore.Penalties
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

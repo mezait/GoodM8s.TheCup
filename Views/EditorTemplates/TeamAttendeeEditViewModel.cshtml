@@ -1,0 +1,22 @@
+﻿@using System.Globalization
+@using HtmlHelpers.BeginCollectionItem
+@model GoodM8s.TheCup.ViewModels.TeamAttendeeEditViewModel
+<tr class="attendee">
+    @using (Html.BeginCollectionItem("Team.TeamAttendees"))
+    {
+        <td>
+            @Html.HiddenFor(x => x.Id)
+            @Html.DropDownListFor(model => model.AttendeeId,
+                                      Model.Attendees.Select(s => new SelectListItem
+                                      {
+                                          Selected = s.Id == Model.AttendeeId,
+                                          Text = s.FirstName + " " + s.LastName,
+                                          Value = s.Id.ToString(CultureInfo.InvariantCulture)
+                                      }))
+            @Html.ValidationMessageFor(model => model.AttendeeId)
+        </td>
+        <td>
+            <a href="#" class="remove-attendee">Remove</a>
+        </td>
+    }
+</tr>

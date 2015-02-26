@@ -1,0 +1,11 @@
+﻿Name: GoodM8s.TheCup
+AntiForgery: enabled
+Author: Meza Information Technology
+Website: http://www.goodm8s.com.au
+Version: 1.0
+OrchardVersion: 1.0
+Description: GoodM8s Cup - Attendees, teams, events, scores.
+Features:
+    GoodM8s.TheCup:
+        Description: Attendees, teams, events, scores.
+		Category: GoodM8s

@@ -1,0 +1,30 @@
+﻿@using System.Globalization
+@using HtmlHelpers.BeginCollectionItem
+@model GoodM8s.TheCup.ViewModels.TeamScoreEditViewModel
+<tr class="team">
+    @using (Html.BeginCollectionItem("Score.TeamScores"))
+    {
+        <td>
+            @Html.HiddenFor(x => x.Id)
+            @Html.DropDownListFor(model => model.TeamId,
+                                      Model.Teams.Select(s => new SelectListItem
+                                      {
+                                          Selected = s.Id == Model.TeamId,
+                                          Text = s.Name,
+                                          Value = s.Id.ToString(CultureInfo.InvariantCulture)
+                                      }))
+            @Html.ValidationMessageFor(model => model.TeamId)
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Score)
+            @Html.ValidationMessageFor(x => x.Score)
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Penalties)
+            @Html.ValidationMessageFor(x => x.Penalties)
+        </td>
+        <td>
+            <a href="#" class="remove-team">Remove</a>
+        </td>
+    }
+</tr>

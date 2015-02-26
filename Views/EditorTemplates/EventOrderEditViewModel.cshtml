@@ -1,0 +1,26 @@
+﻿@using System.Globalization
+@using HtmlHelpers.BeginCollectionItem
+@model GoodM8s.TheCup.ViewModels.EventOrderEditViewModel
+<tr class="event">
+    @using (Html.BeginCollectionItem("Cup.EventOrders"))
+    {
+        <td>
+            @Html.EditorFor(x => x.SortOrder)
+            @Html.ValidationMessageFor(x => x.SortOrder)
+        </td>
+        <td>
+            @Html.HiddenFor(x => x.Id)
+            @Html.DropDownListFor(model => model.EventId,
+                                      Model.Events.Select(s => new SelectListItem
+                                      {
+                                          Selected = s.Id == Model.EventId,
+                                          Text = s.Name,
+                                          Value = s.Id.ToString(CultureInfo.InvariantCulture)
+                                      }))
+            @Html.ValidationMessageFor(model => model.EventId)
+        </td>
+        <td>
+            <a href="#" class="remove-event">Remove</a>
+        </td>
+    }
+</tr>
