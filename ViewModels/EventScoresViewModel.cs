@@ -5,6 +5,7 @@ namespace GoodM8s.TheCup.ViewModels {
     public class EventScoresViewModel {
         public EventPart Event { get; set; }
         public IList<TeamScoreRecord> TeamScores { get; set; }
+        public string Notes { get; set; }
     }
 
     public class TeamScoreTotalsViewModel {

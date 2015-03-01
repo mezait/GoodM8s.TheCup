@@ -75,11 +75,15 @@
                             @teamScore.Score
                         </td>
                         <td>
-                            @teamScore.Penalties
+                            @(teamScore.Penalties ?? 0)
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+        <p>
+            <i>@eventScore.Notes</i>
+        </p>
+        <br />
     }
 </div>

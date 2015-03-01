@@ -39,7 +39,8 @@ namespace GoodM8s.TheCup.Controllers {
                 foreach (var score in scores.Where(score => score.Event.Id == e.EventPartRecord.Id)) {
                     var eventScores = new EventScoresViewModel {
                         Event = score.Event,
-                        TeamScores = score.TeamScores.OrderByDescending(s => s.Score).ToList()
+                        TeamScores = score.TeamScores.OrderByDescending(s => s.Score).ToList(),
+                        Notes = score.Notes
                     };
 
                     results.EventScores.Add(eventScores);
