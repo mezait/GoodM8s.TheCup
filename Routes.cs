@@ -32,6 +32,21 @@ namespace GoodM8s.TheCup {
                 new RouteDescriptor {
                     Priority = 9,
                     Route = new Route(
+                        "TheCup",
+                        new RouteValueDictionary {
+                            {"area", "GoodM8s.TheCup"},
+                            {"controller", "Home"},
+                            {"action", "Results"},
+                        },
+                        new RouteValueDictionary(),
+                        new RouteValueDictionary {
+                            {"area", "GoodM8s.TheCup"}
+                        },
+                        new MvcRouteHandler())
+                },
+                new RouteDescriptor {
+                    Priority = 9,
+                    Route = new Route(
                         "TheCup/Results/{cupId}",
                         new RouteValueDictionary {
                             {"area", "GoodM8s.TheCup"},

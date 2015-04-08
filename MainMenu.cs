@@ -17,7 +17,7 @@ namespace GoodM8s.TheCup {
         }
 
         private void GetActiveCup(NavigationBuilder builder) {
-            builder.Add(T("Results"), "2.1", item =>
+            builder.Add(T("Results"), "3.1", item =>
                 item.Action("Results", "Home", new {area = "GoodM8s.TheCup"}));
         }
     }
